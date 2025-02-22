@@ -1,9 +1,5 @@
 package com.restapi.controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.*;
 
 
 // controller class
@@ -19,6 +15,11 @@ public class AppController {
 
     @GetMapping("/query")
     public String sayHelloWithName(@RequestParam String name) {
+        return "Hello " + name + " from BridgeLabz";
+    }
+
+    @GetMapping("/param/{name}")
+    public String sayHelloWithPath(@PathVariable String name) {
         return "Hello " + name + " from BridgeLabz";
     }
 }
