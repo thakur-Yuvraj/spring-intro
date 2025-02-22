@@ -1,6 +1,6 @@
 package com.restapi.controller;
 import org.springframework.web.bind.annotation.*;
-
+import com.restapi.User;
 
 // controller class
 @RestController
@@ -21,5 +21,10 @@ public class AppController {
     @GetMapping("/param/{name}")
     public String sayHelloWithPath(@PathVariable String name) {
         return "Hello " + name + " from BridgeLabz";
+    }
+
+    @PostMapping("/post")
+    public String sayHelloWithBody(@RequestBody User user) {
+        return "Hello " + user.getFirstName() + " " + user.getLastName() + " from BridgeLabz";
     }
 }
